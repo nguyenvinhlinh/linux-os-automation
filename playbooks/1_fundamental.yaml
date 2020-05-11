@@ -1,0 +1,13 @@
+---
+- hosts: workstation
+  remote_user: nguyenvinhlinh
+  tasks:
+    - name: ping server
+      ping:
+        data: pong
+    - name: update fedora
+      yum:
+        name: "*"
+        state: latest
+      become: yes
+      become_method: sudo
