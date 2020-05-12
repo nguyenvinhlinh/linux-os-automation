@@ -1,13 +1,29 @@
 ---
 - hosts: workstation
   remote_user: nguyenvinhlinh
+  become: yes
+  become_method: sudo
   tasks:
-    - name: ping server
+    - name: "1. Ping server"
       ping:
         data: pong
-    - name: update fedora
-      yum:
+    - name: "2. Update fedora"
+      dnf:
         name: "*"
         state: latest
-      become: yes
-      become_method: sudo
+    - name: "3. Install zsh"
+      dnf:
+        name: zsh
+        state: latest
+    - name: "4. Install emacs"
+      dnf:
+        name: emacs
+        state: latest
+    - name: "5. Install git"
+      dnf:
+        name: git
+        state: latest
+    - name: "6. Install dropbox"
+      dnf:
+        name: "https://www.dropbox.com/download?dl=packages/fedora/nautilus-dropbox-2020.03.04-1.fedora.x86_64.rpm"
+        state: latest
