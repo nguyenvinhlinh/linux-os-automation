@@ -30,3 +30,6 @@
     - name: "6. Install Dropbox"
       import_role:
         name: dropbox
+    - name: "7. Install RPM Fusion"
+      import_role:
+        name: "rpm-fusion"
