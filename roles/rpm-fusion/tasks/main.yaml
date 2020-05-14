@@ -1,3 +1,4 @@
+---
 - name: "Install RPM non-free"
   dnf:
     name: https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-{{ansible_facts['distribution_major_version']}}.noarch.rpm
