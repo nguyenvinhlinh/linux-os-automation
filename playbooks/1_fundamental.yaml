@@ -28,13 +28,16 @@
         state: latest
       become: yes
     - name: "6. Install Dropbox"
-      import_role:
+      include_role:
         name: dropbox
     - name: "7. Install RPM Fusion"
-      import_role:
+      include_role:
         name: "rpm-fusion"
     - name: "8. Install Google Chrome"
       dnf:
         name: "https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm"
         state: latest
       become: yes
+    - name: "9. Install Postman"
+      include_role:
+        name: postman
