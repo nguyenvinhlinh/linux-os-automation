@@ -41,3 +41,13 @@
     - name: "9. Install Postman"
       include_role:
         name: postman
+    - name: "10. Install MPV"
+      dnf:
+        name: "mpv"
+        state: latest
+      become: yes
+    - name: "11. Install DBeaver"
+      dnf:
+        name: "https://dbeaver.io/files/dbeaver-ce-latest-stable.x86_64.rpm"
+        state: latest
+      become: yes
