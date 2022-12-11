@@ -1,5 +1,6 @@
 ---
-- hosts: workstation
+- hosts: localhost
+  connection: local
   remote_user: nguyenvinhlinh
 
   become_method: sudo
@@ -27,20 +28,24 @@
         name: git
         state: latest
       become: yes
-    - name: "6. Install Dropbox"
-      include_role:
-        name: dropbox
-    - name: "7. Install RPM Fusion"
-      include_role:
-        name: "rpm-fusion"
+    - name: "6. Install gnome-tweaks"
+      dnf:
+        name: gnome-tweaks
+        state: latest
+      become: yes
+#      include_role:
+#        name: dropbox
+#    - name: "7. Install RPM Fusion"
+#      include_role:
+#        name: "rpm-fusion"
     - name: "8. Install Google Chrome"
       dnf:
         name: "https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm"
         state: latest
       become: yes
-    - name: "9. Install Postman"
-      include_role:
-        name: postman
+#    - name: "9. Install Postman"
+#      include_role:
+#        name: postman
     - name: "10. Install MPV"
       dnf:
         name: "mpv"
@@ -50,4 +55,20 @@
       dnf:
         name: "https://dbeaver.io/files/dbeaver-ce-latest-stable.x86_64.rpm"
         state: latest
+        disable_gpg_check: yes
       become: yes
+    - name: "12. Install oh-my-zsh"
+      include_role:
+        name: gantsign.oh-my-zsh
+      vars:
+        users:
+          - username: nguyenvinhlinh
+            oh_my_zsh:
+              theme: robbyrussell
+              plugins:
+                - git
+    - name: "13. Clone .emacs.d"
+      ansible.builtin.git:
+        repo: git@github.com:nguyenvinhlinh/emacs.d.git
+        dest: /home/nguyenvinhlinh/.emacs.d
+        version: master
