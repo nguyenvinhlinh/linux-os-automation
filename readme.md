@@ -1,8 +1,14 @@
-# OS Automation
+# Fedora Workstation Provision
 
-ansible-galaxy install -r requirements.yml
+```zsh
+$ sudo dnf install ansible -y
 
-ansible-playbook playbooks/1_fundamental.yaml --ask-become-pass -i inventory
+$ ansible-galaxy install -r requirements.yml
+
+$ ansible-playbook playbooks/1_fundamental.yaml --ask-become-pass -i inventory
+```
+
+
 
 
 ## TODO
