@@ -1,5 +1,5 @@
 ---
-- name: "Make Postman permanent directory"
+- name: "Make Software directory"
   file:
     path: "/home/nguyenvinhlinh/Software"
     state: directory

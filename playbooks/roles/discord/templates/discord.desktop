@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=Discord
+Comment=Discord
+Icon=/home/nguyenvinhlinh/Software/Discord/discord.png
+Path=/home/nguyenvinhlinh/Software/Discord
+Exec=/home/nguyenvinhlinh/Software/Discord/Discord
+Terminal=false
+Categories=Development;

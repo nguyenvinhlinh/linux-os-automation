@@ -1,0 +1,27 @@
+---
+- name: "Make Software directory"
+  file:
+    path: "/home/nguyenvinhlinh/Software"
+    state: directory
+
+- name: "Make Discord temporary directory"
+  file:
+    path: "/tmp/Discord"
+    state: directory
+
+- name: "Extract Discord to temporary directory"
+  unarchive:
+    remote_src: yes
+    dest: "/tmp/Discord"
+    src: "https://discord.com/api/download?platform=linux&format=tar.gz"
+
+- name: "Copy Discord to permanent directory"
+  copy:
+    remote_src: yes
+    src: "/tmp/Discord/Discord/"
+    dest: "/home/nguyenvinhlinh/Software/Discord"
+
+- name: "Make Discord desktop shortcut"
+  template:
+    dest: /home/nguyenvinhlinh/.local/share/applications/discord.desktop
+    src: discord.desktop

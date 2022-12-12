@@ -93,3 +93,6 @@
         state: present
         disable_gpg_check: true
       become: yes
+    - name: "19. Install Discord"
+      include_role:
+        name: discord
