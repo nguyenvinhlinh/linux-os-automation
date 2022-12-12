@@ -1,0 +1,28 @@
+---
+- hosts: localhost
+  remote_user: nguyenvinhlinh
+
+  tasks:
+    - name: "01. Clone Expense Management"
+      ansible.builtin.git:
+        repo: git@github.com:nguyenvinhlinh/expense_management.git
+        dest: /home/nguyenvinhlinh/Projects/expense_management
+        version: master
+
+    - name: "02. Clone nguyenvinhlinh.github.io"
+      ansible.builtin.git:
+        repo: git@github.com:nguyenvinhlinh/nguyenvinhlinh.github.io.git
+        dest: /home/nguyenvinhlinh/Projects/nguyenvinhlinh.github.io
+        version: master
+
+    - name: "03. Clone cheatsheet"
+      ansible.builtin.git:
+        repo: git@github.com:nguyenvinhlinh/cheatsheets.git
+        dest: /home/nguyenvinhlinh/Projects/cheatsheets
+        version: master
+
+    - name: "04. Clone my-zsh-alias"
+      ansible.builtin.git:
+        repo: git@github.com:nguyenvinhlinh/my-zsh-alias.git
+        dest: /home/nguyenvinhlinh/Projects/my-zsh-alias
+        version: master
