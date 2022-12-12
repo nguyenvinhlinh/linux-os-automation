@@ -101,9 +101,14 @@
         name: flathub
         state: present
         flatpakrepo_url: https://flathub.org/repo/flathub.flatpakrepo
-      become: true
+      become: yes
     - name: "21. Install gnome shell extension manager"
       community.general.flatpak:
         name: org.gnome.Extensions
         state: present
         remote: flathub
+    - name: "22. Install FreeCAD"
+      dnf:
+        name: freecad
+        state: latest
+      become: yes
