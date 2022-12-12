@@ -1,0 +1,27 @@
+---
+- name: "Make Postman permanent directory"
+  file:
+    path: "/home/nguyenvinhlinh/Software"
+    state: directory
+
+- name: "Make Postman temporary directory"
+  file:
+    path: "/tmp/Postman"
+    state: directory
+
+- name: "Extract Postman to temporary directory"
+  unarchive:
+    remote_src: yes
+    dest: "/tmp/Postman"
+    src: "https://dl.pstmn.io/download/latest/linux64"
+
+- name: "Copy Postman to permanent directory"
+  copy:
+    remote_src: yes
+    src: "/tmp/Postman/Postman/"
+    dest: "/home/nguyenvinhlinh/Software/Postman"
+
+- name: "Make Postman desktop shortcut"
+  template:
+    dest: /home/nguyenvinhlinh/.local/share/applications/postman.desktop
+    src: postman.desktop

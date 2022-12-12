@@ -78,3 +78,6 @@
         name: libreoffice
         state: latest
       become: yes
+    - name: "16. Install Postman"
+      include_role:
+        name: postman

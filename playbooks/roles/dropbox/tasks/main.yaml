@@ -1,0 +1,16 @@
+- name: "Install Dropbox Nautilus"
+  dnf:
+    name: "https://www.dropbox.com/download?dl=packages/fedora/nautilus-dropbox-2020.03.04-1.fedora.x86_64.rpm"
+    state: latest
+  become: yes
+
+- name: "Download Dropbox daemon"
+  get_url:
+    url: "https://www.dropbox.com/download?plat=lnx.x86_64"
+    dest: "/tmp/dropbox.tar.gz"
+
+- name: "Untar Dropbox daemon"
+  unarchive:
+    src: "/tmp/dropbox.tar.gz"
+    dest: "/home/nguyenvinhlinh/"
+    remote_src: yes

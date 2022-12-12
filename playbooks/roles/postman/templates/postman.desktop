@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=Postman
+Comment=Postman
+Icon=/home/nguyenvinhlinh/Software/Postman/app/icons/icon_128x128.png
+Path=/home/nguyenvinhlinh/Software/Postman/
+Exec=/home/nguyenvinhlinh/Software/Postman/Postman
+Terminal=false
+Categories=Development;
