@@ -96,3 +96,14 @@
     - name: "19. Install Discord"
       include_role:
         name: discord
+    - name: "20. Add flathub repo"
+      community.general.flatpak_remote:
+        name: flathub
+        state: present
+        flatpakrepo_url: https://flathub.org/repo/flathub.flatpakrepo
+      become: true
+    - name: "21. Install gnome shell extension manager"
+      community.general.flatpak:
+        name: org.gnome.Extensions
+        state: present
+        remote: flathub
