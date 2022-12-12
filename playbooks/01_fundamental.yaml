@@ -81,3 +81,15 @@
     - name: "16. Install Postman"
       include_role:
         name: postman
+    - name: "17. Install Microsoft Teams"
+      dnf:
+        name: https://packages.microsoft.com/yumrepos/ms-teams/teams-1.5.00.23861-1.x86_64.rpm
+        state: present
+        disable_gpg_check: true
+      become: yes
+    - name: "18. Install Skype"
+      dnf:
+        name: https://repo.skype.com/latest/skypeforlinux-64.rpm
+        state: present
+        disable_gpg_check: true
+      become: yes
