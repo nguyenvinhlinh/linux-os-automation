@@ -73,3 +73,8 @@
         name: "steam"
         state: latest
       become: yes
+    - name: "15. Install Libreoffice"
+      dnf:
+        name: libreoffice
+        state: latest
+      become: yes
