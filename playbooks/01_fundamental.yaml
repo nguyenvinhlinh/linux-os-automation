@@ -112,3 +112,9 @@
         name: freecad
         state: latest
       become: yes
+
+    - name: "23. Install Drawing"
+      dnf:
+        name: drawing
+        state: latest
+      become: yes
