@@ -63,6 +63,11 @@
               theme: robbyrussell
               plugins:
                 - git
+          - username: root
+            oh_my_zsh:
+              theme: darkblood
+              plugins:
+                - git
     - name: "13. Clone .emacs.d"
       ansible.builtin.git:
         repo: git@github.com:nguyenvinhlinh/emacs.d.git
